@@ -1,0 +1,43 @@
+
+mongo
+use ppatil3
+
+map_task1  = function(){
+	emit(this.title, {"title": this.title, "num_comments": this.num_comments, "subreddit": this.subreddit, "description": this.description });
+}
+
+map_task2 = function(){
+	emit(this.title, {"comment": this.comment});
+};
+
+reduce = function(k, values) {
+    var final_result = {}, task2_comment = { 
+        "comment": '',
+    };
+    values.forEach(function(value) {
+        var field;
+        if ("comment" in value) {
+            if (!("comments" in final_result)) {
+                final_result.comments = [];
+            }
+            final_result.comments.push(value);
+        } else if ("comments" in value) {
+            if (!("comments" in final_result)) {
+                final_result.comments = [];
+            }
+            final_result.comments.push.apply(final_result.comments, value.comments);
+        }
+        for (field in value) {
+            if (value.hasOwnProperty(field) && !(field in task2_comment)) {
+                final_result[field] = value[field];
+            }
+        }
+    });
+    return final_result;
+};
+
+db.mapreduce_task1.mapReduce(map_task1, reduce, {out: {reduce : 'ppatil3_Part2'}});
+db.mapreduce_task2.mapReduce(map_task2, reduce, {out: {reduce : 'ppatil3_Part2'}});
+
+db.ppatil3_Part2.find().pretty()
+

@@ -1,0 +1,155 @@
+use ppatil3
+db.Games.drop()
+db.createCollection("Games")
+
+db.Games.insertOne({name: "Mini Militia", publisher: "Miniclip", released: "20110405", rating:95, "scores" : [
+{
+"name": "derrick",
+"score": 100
+},
+{
+"name": "tim",
+"score": 250
+},
+{
+"name": "bryan",
+"score": 150
+}
+]
+ })
+
+db.Games.insertOne({name: "Rocket League", publisher: "Psyonix", released: "20150707", rating:100, "scores" : [
+{
+"name": "derrick",
+"score": 780
+},
+{
+"name": "tim",
+"score": 460
+},
+{
+"name": "Jack",
+"score": 300
+},
+{
+"name": "bryan",
+"score": 600
+}
+]
+ })
+
+db.Games.insertOne({name: "pubg", publisher: "Pubg Corporation", released: "20170323", rating:70, "scores" : [
+{
+"name": "derrick",
+"score": 230
+},
+{
+"name": "tim",
+"score": 220
+},
+{
+"name": "bryan",
+"score": 200
+}
+]
+ })
+
+db.Games.insertOne({name: "Call of Duty", publisher: "Activision", released: "20030829", rating:60, "scores" : [
+{
+"name": "derrick",
+"score": 100
+},
+{
+"name": "tim",
+"score": 200
+},
+{
+"name": "bryan",
+"score": 300
+}
+]
+ })
+db.Games.insertOne({name: "Candy Crush Saga", publisher: "King", released: "20120412", rating:85, "scores" : [
+{
+"name": "derrick",
+"score": 300
+},
+{
+"name": "tim",
+"score": 450
+},
+{
+"name": "bryan",
+"score": 20
+}
+]
+ })
+
+db.Games.insertOne({name: "Ludo", publisher: "Gametion Technologies", released: "20200424", rating:75, "scores" : [
+{
+"name": "Jack",
+"score": 20
+},
+{
+"name": "tim",
+"score": 100
+},
+{
+"name": "Jill",
+"score": 130
+}
+]
+ })
+
+db.Games.insertOne({name: "Zynga Poker", publisher: "Zynga", released: "20200226", rating:70, "scores" : [
+{
+"name": "derrick",
+"score": 140
+},
+{
+"name": "tim",
+"score": 500
+},
+{
+"name": "bryan",
+"score": 350
+}
+]
+ })
+
+db.Games.insertOne({name: "Minecraft", publisher: "Mojang", released: "20110526", rating:100, "scores" : [
+{
+"name": "derrick",
+"score": 550
+},
+{
+"name": "tim",
+"score": 340
+},
+{
+"name": "bryan",
+"score": 110
+}
+]
+ })
+
+db.Games.insertOne({name: "Counter-Strike", publisher: "Nexon", released: "20001108", rating:97, "scores" : undefined})
+
+db.Games.insertOne({name: "Mario ", publisher: "Nitendo", released: "19850813", rating:95, "scores" : [
+{
+"name": "Jack",
+"score": 450
+},
+{
+"name": "Jill",
+"score": 200
+},
+{
+"name": "bryan",
+"score": 700
+}
+]
+ })
+
+db.Games.find().pretty()
+db.Games.count()

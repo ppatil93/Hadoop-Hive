@@ -1,0 +1,10 @@
+db.Games.mapReduce(function(){ 
+    for(var i in this.scores) {
+         emit({PlayerName: this.scores[i].name}, {totalScore: this.scores[i].score});   
+         } }, 
+         function(key, values){
+             var total=0; 
+             for(var i=0; i<values.length;i++)
+             {total += values[i].totalScore;} 
+             return {finalTotal: total}}, {out: "ppatil3_Part1"}).find()
+

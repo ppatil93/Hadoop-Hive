@@ -1,0 +1,11 @@
+use ppatil3
+db.mapreduce_task1.drop()
+db.mapreduce_task2.drop()
+
+db.createCollection("mapreduce_task1")
+db.createCollection("mapreduce_task2")
+quit()
+
+mongoimport --db ppatil3 --collection mapreduce_task1 --file /home/local/AD/ppatil3/task1.json
+
+mongoimport --db ppatil3 --collection mapreduce_task2 --file /home/local/AD/ppatil3/task2.json
